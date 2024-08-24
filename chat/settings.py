@@ -88,13 +88,26 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',  # Database name
+        'USER': 'default',  # Username
+        'PASSWORD': 'nuOo6Lp5NfWq',  # Password
+        'HOST': 'ep-silent-rice-a4elqg2v-pooler.us-east-1.aws.neon.tech',  # Host
+        'PORT': '5432',  # Port number
+        'OPTIONS': {
+            'sslmode': 'require',  # Ensure SSL mode is enabled
+        },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #    'default': {
