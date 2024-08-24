@@ -1,14 +1,18 @@
+from chat.routing import websocket_urlpatterns
 import os
-
-# Ensure the settings module is defined
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat.settings')
-
-from django.core.asgi import get_asgi_application
+import django
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-from chat.routing import websocket_urlpatterns
+from django.core.asgi import get_asgi_application
 
-# Initialize Django ASGI application early to ensure the AppRegistry is populated.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat.settings')
+
+# Set up Django
+django.setup()
+
+# Import websocket_urlpatterns after setting up Django
+
+# Initialize Django ASGI application
 django_asgi_app = get_asgi_application()
 
 application = ProtocolTypeRouter({
@@ -20,4 +24,5 @@ application = ProtocolTypeRouter({
     ),
 })
 
+# Optional: Export the ASGI application for use by ASGI servers
 app = application
