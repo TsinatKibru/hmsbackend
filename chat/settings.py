@@ -186,4 +186,4 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 '192.168.0.114', '.vercel.app', '.vercel.com']
+                 '192.168.0.114', '.vercel.app', '.vercel.com', '.now.sh']
