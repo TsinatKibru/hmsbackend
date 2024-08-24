@@ -163,13 +163,14 @@ AUTH_USER_MODEL = 'hmsrest.CustomUser'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    # Add your desired allowed origins here
+
     'http://localhost:3000',
-    'http://192.168.0.114:3000'  # Example: Allow requests from localhost:3000
-    # Example: Allow requests from example.com
+    'http://192.168.0.114:3000'
+
 ]
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.114']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 '192.168.0.114', '.vercel.app', '.vercel.com']
